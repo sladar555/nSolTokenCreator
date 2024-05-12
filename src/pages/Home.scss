@@ -1,0 +1,124 @@
+.gradient {
+    padding-left: 13px;
+    padding-right: 14px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background-image: linear-gradient(to left, #da2eef 7.97%, #2b6aff 49.17%, #39d0d8 92.1%);
+}
+
+.shadow1 {
+    box-shadow: -20px 0px 200px rgb(57 208 216 / 1);
+}
+
+.shadow2 {
+    box-shadow: 20px 0px 200px rgb(218 46 239 / 1);
+}
+
+.create-btn {
+    border: 2px solid #91eb67;
+    border-radius: 9px;
+    background-color: transparent;
+    color: #fff;
+    width: 250px;
+    padding: 16px 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: .05em;
+    transition: all .15s ease-in;
+}
+
+.openbook-btn {
+    border-radius: 9px;
+    background-color: transparent;
+    color: #fff;
+    width: 250px;
+    padding: 16px 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: .05em;
+    transition: all .15s ease-in;
+    border: 2px solid #8a52eb !important;
+}
+
+.features__item {
+    height: 165px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100% !important;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid #fff;
+    padding: 0 20px;
+    max-width: 350px;
+
+    .features__heading {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 12px;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 31px;
+        letter-spacing: 0;
+        text-align: left;
+        height: 31px !important;
+    }
+
+    .features__description {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0;
+        text-align: left;
+        height: 66px !important;
+    }
+    
+    .features__link {
+        display: flex;
+        gap: 6px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 22px;
+        letter-spacing: 0;
+        text-align: left;
+        text-transform: uppercase;
+        text-decoration: none;
+        height: 22px !important;
+        color: #fff;
+    }    
+}
+
+.features__item:first-of-type {
+    padding-left: 0;
+}
+
+@media (max-width: 1180px) {
+    .features__item {
+        height: 180px !important;
+        .features__heading {
+            height: 46px !important;
+        }  
+    }
+}
+
+@media (max-width: 1024px) {
+    .features__item {
+        max-width: 500px;
+        height: 180px !important;
+        border-right: 0;
+        padding: 0;
+        margin-bottom: 20px;
+        .features__heading {
+            height: 46px !important;
+        }  
+    }
+}

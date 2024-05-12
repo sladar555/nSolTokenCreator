@@ -1,0 +1,32 @@
+.faq-item-arrowdown {
+    -webkit-mask: url(/assets/icons/ArrowDown.png) right center no-repeat;
+    -webkit-mask-size: 24px;
+}
+
+.faq-item-arrowup {
+    -webkit-mask: url(/assets/icons/ArrowUp.png) right center no-repeat;
+    -webkit-mask-size: 24px;
+}
+
+.faq-item:hover .faq-item-arrow {
+    background-color: #00B0F1;
+}
+
+.faq-item-arrow-wrapper {
+    position: relative;
+}
+
+.faq-item-arrow {
+    background-color: #777E90;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.faq-item:hover .faq-item-idx {
+    color: #00B0F1;
+}
+
+.faq-item:hover .faq-item-question {
+    color: #00B0F1;
+}

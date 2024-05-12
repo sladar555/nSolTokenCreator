@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.wallet-adapter-button {
+    background-color: #252525 !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    height: 40px !important;
+    line-height: 40px !important;
+    padding: 0 16px !important;
+    border-radius: 4px !important;
+    /* background-color: transparent !important;
+    --text-color: #3bd0d8;
+    --border-color: #58f3cd;
+    --bg-board-color: rgba(59, 208, 216, .2);
+    --bg-board-color-2: rgba(59, 208, 216, 0);
+    border: 0px;
+    position: relative;
+    color: var(--text-color);
+    background: linear-gradient(162deg, var(--bg-board-color) 28.7%, var(--bg-board-color-2, var(--bg-board-color))); */
+}
+
+body {
+    background-image: linear-gradient(to bottom, left);
+    --tw-gradient-to: #110d36 left;
+    --tw-gradient-from: #0c0927 var(--tw-gradient-from-position);
+    --tw-gradient-to: rgba(12, 9, 39, 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
