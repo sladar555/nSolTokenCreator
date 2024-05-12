@@ -14,15 +14,6 @@
     line-height: 40px !important;
     padding: 0 16px !important;
     border-radius: 4px !important;
-    /* background-color: transparent !important;
-    --text-color: #3bd0d8;
-    --border-color: #58f3cd;
-    --bg-board-color: rgba(59, 208, 216, .2);
-    --bg-board-color-2: rgba(59, 208, 216, 0);
-    border: 0px;
-    position: relative;
-    color: var(--text-color);
-    background: linear-gradient(162deg, var(--bg-board-color) 28.7%, var(--bg-board-color-2, var(--bg-board-color))); */
 }
 
 body {

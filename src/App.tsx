@@ -15,7 +15,6 @@ import {
 import { clusterApiUrl } from "@solana/web3.js";
 import '@solana/wallet-adapter-react-ui/styles.css';
 import "./App.css";
-import { MetaplexProvider } from "./MetaplexProvider";
 
 import Home from "./pages/Home";
 
@@ -91,17 +90,15 @@ const App = () => {
       <ConnectionProvider endpoint={endpoint}>
         <WalletProvider wallets={wallets} autoConnect>
           <WalletModalProvider>
-            <MetaplexProvider>
-                <div className="flex flex-col min-h-screen items-center justify-start h-full bg-black">
-                  <Header />
-                  <Router>
-                    <Routes>  
-                      <Route path="/" element={<Home />} /> 
-                    </Routes>
-                  </Router>
-                  <Footer /> 
-                </div>
-            </MetaplexProvider>
+            <div className="flex flex-col min-h-screen items-center justify-start h-full bg-black">
+              <Header />
+              <Router>
+                <Routes>  
+                  <Route path="/" element={<Home />} /> 
+                </Routes>
+              </Router>
+              <Footer /> 
+            </div>
           </WalletModalProvider>
         </WalletProvider>
       </ConnectionProvider>
