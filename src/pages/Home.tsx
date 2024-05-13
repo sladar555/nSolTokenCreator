@@ -17,8 +17,8 @@ const Home = () => {
                                 <p>OpenBook Market creation from 0.45 SOL</p>
                             </div>
                             <div className="flex w-full flex-col sm:flex-row items-center justify-center gap-[20px]">
-                                <button className="w-full sm:w-[250px] create-btn">CREATE TOKEN</button>
-                                <button className="w-full sm:w-[250px] openbook-btn">OPENBOOK MANAGER</button>
+                                <a href="/create" className="w-full sm:w-[250px] create-btn">CREATE TOKEN</a>
+                                <a href="/lp-manager" className="w-full sm:w-[250px] openbook-btn">OPENBOOK MANAGER</a>
                             </div>
                             <div className="mb-[20px] flex flex-col gap-[5px] 2xl:gap-[10px] lg:flex-row items-start lg:items-center mt-[60px]">
                                 <div className="features__item">
