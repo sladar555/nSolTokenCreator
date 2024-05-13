@@ -17,6 +17,9 @@ import '@solana/wallet-adapter-react-ui/styles.css';
 import "./App.css";
 
 import Home from "./pages/Home";
+import CreateTokenComponent from "./components/CreateToken";
+import CreateLP from "./components/CreateLP";
+import Airdrop from "./components/Airdrop";
 
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
@@ -95,6 +98,9 @@ const App = () => {
               <Router>
                 <Routes>  
                   <Route path="/" element={<Home />} /> 
+                  <Route path="/create" element={<CreateTokenComponent />} /> 
+                  <Route path="/lp-manager" element={<CreateLP />} /> 
+                  <Route path="/airdrop" element={<Airdrop />} /> 
                 </Routes>
               </Router>
               <Footer /> 

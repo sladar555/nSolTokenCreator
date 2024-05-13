@@ -1,22 +1,10 @@
-import FAQ from "../components/FAQ";
 import "./Home.scss";
 import CreateTokenComponent from "../components/CreateToken";
-import CreateMarketComponent from "../components/CreateMarket";
-import CreateLPComponent from "../components/CreateLP";
-import DescriptionComponent from "../components/Description";
 import { Helmet } from "react-helmet";
 
 const Home = () => {    
     return (
         <div className="relative w-full px-4">
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>Sol Token Creator</title>
-                <link rel="canonical" href="https://soltokencreator.io/" />
-                <meta name="title" content="Solana Token Creator" />
-                <meta name="decription" content="This is tool to allow users to create their own SPL Tokens and Openbook Market ID."/>
-                <meta name="twitter:title" content="Solana Token Creator" />
-            </Helmet>
             <section className="tf-section hero-slider">
                 <div className="container mt-[85px]">
                     <div className="py-[20px] lg:!py-[50px]">
