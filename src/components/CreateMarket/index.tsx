@@ -17,6 +17,10 @@ const CreateMarket = () => {
     const [lotSize, setLotSize] = useState(2);
     const [tickSize, setTickSize] = useState(4);
 
+    const [eventQueueLength, setEventQueueLength] = useState(128);
+    const [requestQueueLength, setRequestQueueLength] = useState(63);
+    const [orderBookLength, setOrderBookLength] = useState(201);
+
     const [marketAddr, setMarketAddr] = useState("");
     const [marketTx, setMarketTx] = useState("");
 
@@ -122,7 +126,7 @@ const CreateMarket = () => {
                                                         type="number"
                                                         defaultValue={lotSize}
                                                         onChange={(e: any) => setLotSize(e.target.value)}
-                                                        className="myinput block w-full p-2 rounded-md text-slate-200 border-[1px] border-zinc-700 bg-[#131313] focus-style pl-16 sm:pl-14 sm:text-sm"
+                                                        className="myinput block w-full py-2 pl-6 pr-2 rounded-md text-slate-200 border-[1px] border-zinc-700 bg-[#131313] focus-style pl-16 sm:pl-14 sm:text-sm focus:border-[#91eb67] focus:outline-0 focus:ring-0"
                                                         name="lotSize" />
                                                 </div>
                                             </div>
@@ -142,7 +146,7 @@ const CreateMarket = () => {
                                                         type="number"
                                                         defaultValue={tickSize}
                                                         onChange={(e: any) => setTickSize(e.target.value)}
-                                                        className="myinput block w-full p-2 rounded-md border-[1px] border-zinc-700 text-slate-200 bg-[#131313] focus-style pl-16 sm:pl-14 sm:text-sm"
+                                                        className="myinput block w-full py-2 pl-6 pr-2 rounded-md border-[1px] border-zinc-700 text-slate-200 bg-[#131313] focus-style pl-16 sm:pl-14 sm:text-sm focus:border-[#91eb67] focus:outline-0 focus:ring-0"
                                                         name="tickSize" />
                                                 </div>
                                             </div>
@@ -188,10 +192,15 @@ const CreateMarket = () => {
                                                     </label>
                                             </div>
                                             </div>
-                                            <div className={useAdvanceOption? "": "opacity-30"}><label className="block text-xs text-slate-400">Event Queue Length</label>
+                                            <div className={useAdvanceOption? "": "opacity-30"}>
+                                                <label className="block text-xs text-slate-400">Event Queue Length</label>
                                                 <div className="mt-1">
                                                     <div className="relative flex items-center">
-                                                        <input type="number" disabled={!useAdvanceOption}
+                                                        <input 
+                                                            type="number" 
+                                                            disabled={!useAdvanceOption}
+                                                            defaultValue={eventQueueLength}
+                                                            onChange={(e: any) => setEventQueueLength(e.target.value)}
                                                             className="myinput block w-full rounded-md p-2 bg-[#131313] border-[1px] border-slate-700 focus-style sm:text-sm"
                                                             name="eventQueueLength" />
                                                         <p className="absolute right-0 mr-2 text-sm text-slate-400">11308 bytes
@@ -199,9 +208,15 @@ const CreateMarket = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className={useAdvanceOption? "": "opacity-30"}><label className="block text-xs text-slate-400">Request Queue Length</label>
+                                            <div className={useAdvanceOption? "": "opacity-30"}>
+                                                <label className="block text-xs text-slate-400">Request Queue Length</label>
                                                 <div className="mt-1">
-                                                    <div className="relative flex items-center"><input type="number" disabled={!useAdvanceOption}
+                                                    <div className="relative flex items-center">
+                                                        <input 
+                                                            type="number" 
+                                                            disabled={!useAdvanceOption}
+                                                            defaultValue={requestQueueLength}
+                                                            onChange={(e: any) => setRequestQueueLength(e.target.value)}
                                                             className="myinput block w-full rounded-md p-2 bg-[#131313] border-[1px] border-slate-700  focus-style sm:text-sm"
                                                             name="requestQueueLength" />
                                                         <p className="absolute right-0 mr-2 text-sm text-slate-400">5084 bytes
@@ -209,9 +224,15 @@ const CreateMarket = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className={useAdvanceOption? "": "opacity-30"}><label className="block text-xs text-slate-400">Orderbook Length</label>
+                                            <div className={useAdvanceOption? "": "opacity-30"}>
+                                                <label className="block text-xs text-slate-400">Orderbook Length</label>
                                                 <div className="mt-1">
-                                                    <div className="relative flex items-center"><input type="number" disabled={!useAdvanceOption}
+                                                    <div className="relative flex items-center">
+                                                        <input 
+                                                            type="number" 
+                                                            disabled={!useAdvanceOption}
+                                                            defaultValue={orderBookLength}
+                                                            onChange={(e: any) => setOrderBookLength(e.target.value)}
                                                             className="myinput block w-full rounded-md p-2 bg-[#131313] border-[1px] border-slate-700  focus-style sm:text-sm"
                                                             name="orderbookLength" />
                                                         <p className="absolute right-0 mr-2 text-sm text-slate-400">14524 bytes
