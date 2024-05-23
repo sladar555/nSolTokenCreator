@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import CreateMarket from "../../utils/libMarket";
+import { validateMint } from "../../utils/token";
+import { getAccountLink, getShortHash, getShortLink } from "../../utils/general";
 
-const CreateMarket = () => {
+const CreateMarketComponent = () => {
     const [isNew, setIsNew] = useState(false);
     const [useAdvanceOption, setUseAdvanceOption] = useState(true);
-
-    const onCreateMarket = async (e: any) => {
-        e.preventDefault();
-    };
 
     const wallet = useWallet();
     const { connection } = useConnection();
@@ -17,15 +16,55 @@ const CreateMarket = () => {
     const [lotSize, setLotSize] = useState(2);
     const [tickSize, setTickSize] = useState(4);
 
-    const [eventQueueLength, setEventQueueLength] = useState(128);
-    const [requestQueueLength, setRequestQueueLength] = useState(63);
-    const [orderBookLength, setOrderBookLength] = useState(201);
+    const [eventQueueLength, setEventQueueLength] = useState(import.meta.env.VITE_EVENTQUEUE_LENGTH);
+    const [requestQueueLength, setRequestQueueLength] = useState(import.meta.env.VITE_REQUESTQUEUE_LENGTH);
+    const [orderBookLength, setOrderBookLength] = useState(import.meta.env.VITE_ORDERBOOK_LENGTH);
 
     const [marketAddr, setMarketAddr] = useState("");
     const [marketTx, setMarketTx] = useState("");
 
     const [isCreating, setIsCreating] = useState(false);
 
+    const createMarket = async (e: any) => {
+        e.preventDefault();
+
+        if (isCreating) return;
+
+        setIsCreating(true);
+        
+        if (baseMint == "" || lotSize <= 0 || tickSize <= 0) {
+            alert("Invalid Parameter!");
+            setIsCreating(false);
+            return;
+        }
+
+        console.log("mintAddress: ", baseMint);
+
+        // Validate Mint Address
+        const mintAccount = await validateMint(connection, baseMint);
+        
+        console.log("mintAccount", mintAccount);
+        if (mintAccount == null) {
+            alert("Invalid Mint Address!");
+            setIsCreating(false);
+            return;
+        }
+
+        const {marketAddr, marketTx, error } = await CreateMarket(wallet, connection, baseMint, lotSize, tickSize, mintAccount.decimals);
+
+        console.log(marketAddr, marketTx, error);
+
+        if (!error) {
+            setMarketAddr(marketAddr);
+            setMarketTx(marketTx);    
+        } else {
+            alert("Error! Please check SOL Balance or Network Connection!");
+            setMarketAddr('');
+            setMarketTx('');    
+        }
+        
+        setIsCreating(false);
+    };
 
     return (
         <div className="w-full min-h-screen flex items-center justify-center px-0">
@@ -250,7 +289,7 @@ const CreateMarket = () => {
                                     <a href="https://t.me/deploysol_official" target="_blank" className="text-[#91eb67] pl-1"
                                         rel="noopener noreferrer">Telegram Group</a></p>
                                 <button
-                                    onClick={onCreateMarket}
+                                    onClick={createMarket}
                                     className="focus:outline-0 focus:ring-0 mybutto w-full md:w-1/2  h-11 ml-auto md:max-w-xs rounded-lg bg-black border-solid border-[1px] border-[#91eb67] transition-colors disabled:opacity-20">Create</button>
                             </div>
                         </div>
@@ -261,4 +300,4 @@ const CreateMarket = () => {
     )
 }
 
-export default CreateMarket;
+export default CreateMarketComponent;
