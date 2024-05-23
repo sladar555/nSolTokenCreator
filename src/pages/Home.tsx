@@ -18,7 +18,7 @@ const Home = () => {
                             </div>
                             <div className="flex w-full flex-col sm:flex-row items-center justify-center gap-[20px]">
                                 <a href="/create" className="w-full sm:w-[250px] create-btn">CREATE TOKEN</a>
-                                <a href="/lp-manager" className="w-full sm:w-[250px] openbook-btn">OPENBOOK MANAGER</a>
+                                <a href="/market" className="w-full sm:w-[250px] openbook-btn">OPENBOOK MANAGER</a>
                             </div>
                             <div className="mb-[20px] flex flex-col gap-[5px] 2xl:gap-[10px] lg:flex-row items-start lg:items-center mt-[60px]">
                                 <div className="features__item">
