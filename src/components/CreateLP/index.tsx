@@ -4,7 +4,7 @@ const CreateLP = () => {
             <div className="py-[20px] lg:!py-[20px]">
                 <div className="w-full container flex flex-col items-center justify-center gap-[20px]">
                     <div className="create__container w-full p-0 max-w-[600px] mb-[40px]">
-                        <div className="create__form-container">
+                        <div className="create__form-container w-full px-[2px] sm:px-[8px]">
                             <h2 className="create__heading">
                                 <img className="create__heading-icon" src="assets/images/create_lp_icon.svg" alt="Feature Create Icon" />
                                 <span>Add Raydium LP</span>

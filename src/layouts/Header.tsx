@@ -6,27 +6,27 @@ const Header = () => {
     const wallet = useWallet();
 
     return (
-        <header className="relative h-[80px] m-0 p-0 bg-black flex items-center justify-center header-fixed w-full">
-            <div className="fixed flex items-center z-20 w-full h-[120px] py-[20px] sm:py-0 sm:h-[90px] bg-black border-x-0 border-t-0 border-b-[#303030] border-[1px] border-solid">
+        <header className="relative h-[80px] mx-[0px] p-[0px] bg-black flex items-center justify-center header-fixed w-full">
+            <div className="fixed max-w-[100vw] flex items-center z-20 w-full h-[120px] py-[20px] sm:py-0 sm:h-[90px] bg-black border-x-0 border-t-0 border-b-[#303030] border-[1px] border-solid">
                 <div className="container h-[90px]">
                     <div className="h-[90px] flex flex-row items-center justify-between">
                         <div className="flex flex-row items-center justify-start gap-[20px] lg:gap-[40px]">
-                            <a href="/">
+                            <Link to="/">
                                 <img width={40} src="assets/images/logo-sm.png" alt="SolTokenCreator"/>
-                            </a>
+                            </Link>
                             <div className="hidden md:block md:flex leading-[51px] text-[15px] text-white font-bold flex flex-row gap-[10px] lg:gap-[20px] items-center">
-                                <a href="/create">
+                                <Link to="/create">
                                     CREATE TOKEN
-                                </a>
-                                <a href="https://openbook.deploysol.xyz/">
+                                </Link>
+                                <Link to="/market">
                                     OPENBOOK MANAGER
-                                </a>
-                                <a href="/lp-manager">
+                                </Link>
+                                <Link to="/lp-manager">
                                     LP MANAGER
-                                </a>
-                                <a href="/airdrop">
+                                </Link>
+                                <Link to="/airdrop">
                                     AIRDROP
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         <div className="flex flex-row gap-[10px] lg:gap-[40px] items-center justify-center">

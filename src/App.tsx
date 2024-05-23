@@ -19,6 +19,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import CreateTokenComponent from "./components/CreateToken";
 import CreateLP from "./components/CreateLP";
+import CreateMarket from "./components/CreateMarket";
 import Airdrop from "./components/Airdrop";
 
 import Header from "./layouts/Header";
@@ -94,11 +95,12 @@ const App = () => {
         <WalletProvider wallets={wallets} autoConnect>
           <WalletModalProvider>
             <div className="flex flex-col min-h-screen items-center justify-start h-full bg-black">
-              <Header />
               <Router>
+                <Header />
                 <Routes>  
                   <Route path="/" element={<Home />} /> 
                   <Route path="/create" element={<CreateTokenComponent />} /> 
+                  <Route path="/market" element={<CreateMarket />} />
                   <Route path="/lp-manager" element={<CreateLP />} /> 
                   <Route path="/airdrop" element={<Airdrop />} /> 
                 </Routes>
