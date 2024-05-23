@@ -13,12 +13,12 @@ const Airdrop = () => {
                             <form className="create__form" noValidate={false}>
                                 <h4 className="create__input-name">Choose Token</h4>
 
-                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="mb-4 w-full flex flex-row justify-between border-[1px] border-gray-500 text-white focus:ring-[1px] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center bg-transparent hover:bg-[#8A52EB] focus:ring-[#8A52EB]" type="button">
+                                {/* <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="mb-4 w-full flex flex-row justify-between border-[1px] border-gray-500 text-white focus:ring-[1px] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center bg-transparent hover:bg-[#8A52EB] focus:ring-[#8A52EB]" type="button">
                                     Connect wallet to proceed
                                     <svg className="w-2.5 h-2.5 ms-3 focus:color-[#8A52EB]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
                                     </svg>
-                                </button>
+                                </button> */}
 
                                 <div id="dropdown" className="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-44 bg-gray-700">
                                     <ul className="py-2 text-sm text-gray-200" aria-labelledby="dropdownDefaultButton">
