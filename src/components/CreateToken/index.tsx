@@ -328,7 +328,7 @@ const CreateTokenComponent = () => {
                                         </label>
                                     </div>
                                 </div>
-                                <button onClick={createToken} type="button" className="create__deploy" disabled={false}>
+                                <button onClick={createToken} type="button" className="create__deploy focus:outline-0 focus:ring-0" disabled={false}>
                                     {
                                         isCreating? "Token Creating...": <p>Create Token <span className="create__price-tag">(0.3 SOL)</span></p>
                                     }
@@ -408,10 +408,10 @@ const CreateTokenComponent = () => {
                                         }
                                     </select>
                                     <div className="revokes__buttons">
-                                        <button onClick={revokeFreeze} type="button" className="revokes__button" disabled={false}>
+                                        <button onClick={revokeFreeze} type="button" className="revokes__button focus:outline-0 focus:ring-0" disabled={false}>
                                             { isFreezeRevoking? "Revoking Now...": <>Revoke Freeze<span className="revokes__price-tag">(0.1 SOL)</span></> }
                                         </button>
-                                        <button onClick={revokeMint} type="button" className="revokes__button" disabled={false}>
+                                        <button onClick={revokeMint} type="button" className="revokes__button focus:outline-0 focus:ring-0" disabled={false}>
                                             { isMintRevoking? "Revoking Now...": <>Revoke Mint <span className="revokes__price-tag">(0.1 SOL)</span></> }
                                         </button>
                                     </div>

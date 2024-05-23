@@ -48,7 +48,7 @@ const Airdrop = () => {
                                     </div>
                                 </div>
                             
-                                <button type="button" className="create__deploy uppercase" disabled={false}>
+                                <button type="button" className="create__deploy uppercase focus:outline-0 focus:ring-0" disabled={false}>
                                     Airdrop (0.050 SOL)
                                 </button>
                             </form>
