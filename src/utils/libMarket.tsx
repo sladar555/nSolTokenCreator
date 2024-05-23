@@ -246,7 +246,7 @@ const CreateMarket = async (wallet: any, connection: any, baseMint: string, lotS
             skipPreflight: false,
             successCallback: async (txSig) => {
                 console.log("MarketTxId: ", txSig);
-                marketTx = `https://explorer.solana.com/tx/${txSig}`;
+                marketTx = `https://explorer.solana.com/tx/${txSig}?cluster=devnet`;
             },
             sendingCallback: async () => {
                 console.log("Sending Market Tx...");

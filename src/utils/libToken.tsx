@@ -197,7 +197,7 @@ export const createTokenHandler = async (userWallet, connection, MintConfig: TMI
       });
 
       return {
-        txLink: `https://explorer.solana.com/tx/${txHash}`,
+        txLink: `https://explorer.solana.com/tx/${txHash}?cluster=devnet`,
         mintAddr: mintKeypair.publicKey.toBase58(),
         error: undefined
       };

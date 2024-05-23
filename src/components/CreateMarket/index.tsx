@@ -6,13 +6,13 @@ import { getAccountLink, getShortHash, getShortLink } from "../../utils/general"
 
 const CreateMarketComponent = () => {
     const [isNew, setIsNew] = useState(false);
-    const [useAdvanceOption, setUseAdvanceOption] = useState(true);
+    const [useAdvanceOption, setUseAdvanceOption] = useState(false);
 
     const wallet = useWallet();
     const { connection } = useConnection();
 
     const [baseMint, setBaseMint] = useState("");
-    const [quoteMint, setQuoteMint] = useState("So11111111111111111111111111111111111111112");
+    const [quoteMint, setQuoteMint] = useState(import.meta.env.VITE_QUOTE_MINT);
     const [lotSize, setLotSize] = useState(2);
     const [tickSize, setTickSize] = useState(4);
 
@@ -24,6 +24,14 @@ const CreateMarketComponent = () => {
     const [marketTx, setMarketTx] = useState("");
 
     const [isCreating, setIsCreating] = useState(false);
+
+    const copyClipboard = async (addr: string) => {
+        try {
+            await navigator.clipboard.writeText(addr);
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+        }
+    };
 
     const createMarket = async (e: any) => {
         e.preventDefault();
@@ -57,8 +65,10 @@ const CreateMarketComponent = () => {
         if (!error) {
             setMarketAddr(marketAddr);
             setMarketTx(marketTx);    
+            copyClipboard(marketTx);
+            alert(marketTx);
         } else {
-            alert("Error! Please check SOL Balance or Network Connection!");
+            alert(error);
             setMarketAddr('');
             setMarketTx('');    
         }
@@ -128,11 +138,11 @@ const CreateMarketComponent = () => {
                                                         <div className="mt-1">
                                                             <input type="text"
                                                                 onChange={(e: any) => setBaseMint(e.target.value)}
-                                                                className="myinput block w-full rounded-md p-2 bg-[#131313] border-[1px] border-zinc-700 focus-style sm:text-sm"
+                                                                className="myinput block w-full rounded-md p-2 bg-[#131313] border-[1px] border-zinc-700 focus-style sm:text-sm focus:border-[#91eb67] focus:outline-0 focus:ring-0"
                                                                 name="existingMints.baseMint" />
                                                         </div>
                                                     </div>
-                                                    <div>
+                                                    <div className='opacity-30'>
                                                         <label className="block text-xs text-slate-400">Quote Mint</label>
                                                         <div className="mt-1">
                                                             <input type="text" disabled
@@ -195,7 +205,7 @@ const CreateMarketComponent = () => {
                             </div>
                             <div className="bg-[#131313] border-[1px] border-slate-700 px-4 py-5 shadow rounded-lg sm:p-6">
                                 <div className="md:grid md:grid-cols-3 md:gap-6">
-                                    <div className="md:col-span-1">
+                                    <div className="md:col-span-1 mb-5">
                                         <h3 className="text-lg font-medium leading-6 text-slate-200">Advanced Options</h3>
                                         <p className="mt-1 text-sm text-slate-400">Configure sizes for the different accounts used to create the
                                             market to adjust rent cost.</p>
@@ -203,34 +213,38 @@ const CreateMarketComponent = () => {
                                             <div className="mb-1 flex items-center space-x-1">
                                                 <p className="text-xs text-slate-300">Total Rent + Fee Estimate</p>
                                             </div>
-                                            <p className="text-lg text-[#91eb67]">0.45 SOL</p>
+                                            <p className="text-lg text-[#91eb67]">1.85 SOL</p>
                                         </div>
                                     </div>
-                                    <div className="mt-5 space-y-4 md:col-span-2 md:mt-0">
+                                    <div className="mt-0 space-y-4 md:col-span-2">
                                         <div className="space-y-3">
-                                            <div><span className="input-label text-xs text-slate-300">Quick Select</span>
+                                            {/* <div>
+                                                <span className="input-label text-xs text-slate-300">Quick Select</span>
                                                 <div className="flex flex-wrap gap-2 pb-6 pt-2">
                                                     <button type="button"
                                                         className="selected mybb w-full mb-0 md:w-auto bg-[#91eb67] text-black font-normal py-2 px-4 rounded-full focus:outline-0 focus:ring-0">Only
-                                                        Raydium</button>
+                                                        Raydium
+                                                    </button>
 
                                                     <button type="button"
                                                         className="mybb bg-[#131313] w-full md:w-auto border-[1px] border-[#91eb67] text-white font-bold py-2 px-4 rounded-full focus:outline-0 focus:ring-0">Openbook
-                                                        + Raydium</button>
+                                                        + Raydium
+                                                    </button>
                                                 </div>
                                                 <div className="flex flex-wrap  items-center justify-between">
                                                     <span className="flex mb-3 w-full md:w-2/3 flex-grow flex-col space-y-0.5">
                                                         <span className="input-label text-xs text-slate-300" id="headlessui-label-:Rbj76km:">Use Advanced Options</span>
-                                                    <span className="text-sm  text-slate-500" id="headlessui-description-:Rjj76km:">
-                                                        Set custom sizes for market accounts. Market ID creation uses leased storage space on the
-                                                            Solana network. Most of the fees are rent fees.</span>
-                                                </span>
+                                                        <span className="text-sm  text-slate-500" id="headlessui-description-:Rjj76km:">
+                                                            Set custom sizes for market accounts. Market ID creation uses leased storage space on the
+                                                                Solana network. Most of the fees are rent fees.
+                                                        </span>
+                                                    </span>
                                                     <label className="cursor-pointer w-full md:w-1/3">
-                                                    <input type="checkbox" defaultChecked={useAdvanceOption} className="sr-only peer" onChange={(e: any) => setUseAdvanceOption(e.target.checked)} />
-                                                    <div className=" block relative md:ml-auto w-11 h-6 bg-slate-400 peer-focus:outline-none  rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border-[1px] after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-[#91eb67]"></div>
+                                                        <input type="checkbox" defaultChecked={useAdvanceOption} className="sr-only peer" onChange={(e: any) => setUseAdvanceOption(e.target.checked)} />
+                                                        <div className=" block relative md:ml-auto w-11 h-6 bg-slate-400 peer-focus:outline-none  rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border-[1px] after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-[#91eb67]"></div>
                                                     </label>
-                                            </div>
-                                            </div>
+                                                </div>
+                                            </div> */}
                                             <div className={useAdvanceOption? "": "opacity-30"}>
                                                 <label className="block text-xs text-slate-400">Event Queue Length</label>
                                                 <div className="mt-1">
@@ -286,11 +300,13 @@ const CreateMarketComponent = () => {
                             <div className="create-container flex flex-wrap w-full">
                                 <p className=" w-full md:w-1/2 mb-3 text-sm dark:text-white">In case of a market creation fail you are eligible for a refund. Please
                                     let us know in our 
-                                    <a href="https://t.me/deploysol_official" target="_blank" className="text-[#91eb67] pl-1"
+                                    <a href="https://t.me/+TBKti7gyWRs1Y2Fh" target="_blank" className="text-[#91eb67] pl-1"
                                         rel="noopener noreferrer">Telegram Group</a></p>
                                 <button
                                     onClick={createMarket}
-                                    className="focus:outline-0 focus:ring-0 mybutto w-full md:w-1/2  h-11 ml-auto md:max-w-xs rounded-lg bg-black border-solid border-[1px] border-[#91eb67] transition-colors disabled:opacity-20">Create</button>
+                                    className="focus:outline-0 focus:ring-0 mybutto w-full md:w-1/2  h-11 ml-auto md:max-w-xs rounded-lg bg-black border-solid border-[1px] border-[#91eb67] transition-colors disabled:opacity-20">
+                                        { isCreating? "Creating Now...": "Create" }
+                                </button>
                             </div>
                         </div>
                     </form>

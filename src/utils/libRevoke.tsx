@@ -59,7 +59,7 @@ export async function revokeMintAuthority(wallet: any, connection: any, tokenMin
         },
     });
     return {
-        txLink: `https://explorer.solana.com/tx/${txHash}`,
+        txLink: `https://explorer.solana.com/tx/${txHash}?cluster=devnet`,
         error: undefined
       };
   } catch (e) {
@@ -131,7 +131,7 @@ export async function revokeFreezeAuthority(wallet: any, connection: any, tokenM
     });
 
     return {
-        txLink: `https://explorer.solana.com/tx/${txHash}`,
+        txLink: `https://explorer.solana.com/tx/${txHash}?cluster=devnet`,
         error: undefined
     };
   } catch (e) {

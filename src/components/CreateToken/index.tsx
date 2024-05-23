@@ -54,26 +54,36 @@ const CreateTokenComponent = () => {
     const previewIconRef = useRef();
     const uploadBGRef = useRef();
 
-    const chooseToken = (tokenInfo: any) => {
-        setCurrentToken(tokenInfo.address);
+    const copyClipboard = async (addr: string) => {
+        try {
+            await navigator.clipboard.writeText(addr);
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+        }
+    };
+
+    const chooseToken = (e: any) => {
+        console.log(tokens[e.target.selectedIndex].address);
+        copyClipboard(tokens[e.target.selectedIndex].address);
+        setCurrentToken(tokens[e.target.selectedIndex].address);
     };
 
     const revokeFreeze = async (e: any) => {
-        console.log("revokeFreeze start!");
+        console.log("revokeFreeze start!", currentToken);
 
-        if (isFreezeRevoking || isMintRevoking) return;
+        if (isFreezeRevoking || isMintRevoking || currentToken == "") return;
 
         setIsFreezeRevoking(true);
 
         const { txLink, error } = await revokeFreezeAuthority(wallet, connection, currentToken);
 
-        alert(txLink);
         console.log(txLink, error);
 
         if (!error) {
+            alert(txLink);
             setRevokeTx(txLink);    
         } else {
-            alert("Error! Please check SOL Balance or Network Connection!");
+            alert(error);
             setRevokeTx("");
         }
 
@@ -81,21 +91,21 @@ const CreateTokenComponent = () => {
     };
 
     const revokeMint = async (e: any) => {
-        console.log("revokeMint start!");
+        console.log("revokeMint start!", currentToken);
 
-        if (isFreezeRevoking || isMintRevoking) return;
+        if (isFreezeRevoking || isMintRevoking || currentToken == "") return;
 
         setIsMintRevoking(true);
 
         const { txLink, error } = await revokeMintAuthority(wallet, connection, currentToken);
 
-        alert(txLink);
         console.log(txLink, error);
 
         if (!error) {
+            alert(txLink);
             setRevokeTx(txLink);    
         } else {
-            alert("Error! Please check SOL Balance or Network Connection!");
+            alert(error);
             setRevokeTx("");
         }
 
@@ -123,6 +133,12 @@ const CreateTokenComponent = () => {
         }
      }), [wallet]);
  
+    useEffect(() => {
+        if (tokens.length > 0) {
+            copyClipboard(tokens[0].address);
+            setCurrentToken(tokens[0].address);
+        }
+    }, [tokens]);
 
     const uploadImage = async (e: any) => {
         // @ts-ignore
@@ -398,10 +414,10 @@ const CreateTokenComponent = () => {
                                 <div>
                                     <h3 className="revokes__subtitle">Use this to apply freeze/mint revoke manually to your token.</h3>
                                     <h4 className="revokes__subheading">Choose a token address from your wallet</h4>
-                                    <select className="w-full bg-transparent h-[40px] border-[#FFFFFF] border-b-[1px]">
+                                    <select className="w-full bg-transparent h-[40px] border-[#FFFFFF] border-b-[1px]"  onChange={chooseToken}>
                                         {
                                             tokens.map((value, index) => 
-                                                <option key={index} onClick={(e: any) => chooseToken(value)} >
+                                                <option className="bg-[#000000]" key={index} data-address={value.address}>
                                                     {(value.name)? `${value.name}`: ""}&nbsp;({getShortHash(value.address)})
                                                 </option>
                                             )

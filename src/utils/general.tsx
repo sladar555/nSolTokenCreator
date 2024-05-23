@@ -35,5 +35,5 @@ export function getShortLink(text: string) {
 }
 
 export function getAccountLink(account: string) {
-  return `https://explorer.solana.com/address/${account}`;
+  return `https://explorer.solana.com/address/${account}?cluster=devnet`;
 }
