@@ -298,10 +298,11 @@ const CreateMarketComponent = () => {
                                 </div>
                             </div>
                             <div className="create-container flex flex-wrap w-full">
-                                <p className=" w-full md:w-1/2 mb-3 text-sm dark:text-white">In case of a market creation fail you are eligible for a refund. Please
+                                {/* <p className=" w-full md:w-1/2 mb-3 text-sm dark:text-white">In case of a market creation fail you are eligible for a refund. Please
                                     let us know in our 
                                     <a href="https://t.me/+TBKti7gyWRs1Y2Fh" target="_blank" className="text-[#91eb67] pl-1"
-                                        rel="noopener noreferrer">Telegram Group</a></p>
+                                        rel="noopener noreferrer">Telegram Group</a>
+                                </p> */}
                                 <button
                                     onClick={createMarket}
                                     className="focus:outline-0 focus:ring-0 mybutto w-full md:w-1/2  h-11 ml-auto md:max-w-xs rounded-lg bg-black border-solid border-[1px] border-[#91eb67] transition-colors disabled:opacity-20">

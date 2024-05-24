@@ -13,8 +13,8 @@ const Home = () => {
                                 <img width={350} src="assets/images/logo.png" alt="SolTokenCreator"/>
                             </a>
                             <div className="flex flex-col gap-[3px] items-center font-[400px] leading-[29px]">
-                                <p>Deploy a token from 0.067 SOL</p>
-                                <p>OpenBook Market creation from 0.45 SOL</p>
+                                <p>Deploy a token from 0.3 SOL</p>
+                                <p>OpenBook Market creation from 1.85 SOL</p>
                             </div>
                             <div className="flex w-full flex-col sm:flex-row items-center justify-center gap-[20px]">
                                 <a href="/create" className="w-full sm:w-[250px] create-btn">CREATE TOKEN</a>
@@ -40,7 +40,7 @@ const Home = () => {
                                         <span>Openbook Manager</span>
                                     </h5>
                                     <p className="features__description">
-                                    Openbook Market of any size for everyone. Priority Fees included for transaction landing.
+                                        Openbook Market of any size for everyone. Priority Fees included for transaction landing.
                                     </p>
                                     <a className="features__link" href="/market">
                                         Try Now
@@ -53,7 +53,7 @@ const Home = () => {
                                         <span>Raydium LP Manager</span>
                                     </h5>
                                     <p className="features__description">
-                                    Manage the LP. Create a pool, add liquidity, close the pool.
+                                        Manage the LP. Create a pool, add liquidity, close the pool.
                                     </p>
                                     <a className="features__link" href="/lp-manager">
                                         Try Now
