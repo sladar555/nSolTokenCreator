@@ -30,7 +30,7 @@ const CreateLP = () => {
                                 <img className="create__heading-icon" src="assets/images/create_lp_icon.svg" alt="Feature Create Icon" />
                                 <span>Remove Raydium LP</span>
                             </h2>
-                            <h3 className="create__subheading">You are able to remove the Liquidity Pool in case Raydium is not displaing it yet.</h3>
+                            <h3 className="create__subheading">You are able to remove the Liquidity Pool in case Raydium is not displaying it yet.</h3>
                             <form className="create__form" noValidate={false}>
                                 <h4 className="create__input-name">Input your token address (CA)</h4>
                                 <div className="relative z-0 w-full mb-4 group">
