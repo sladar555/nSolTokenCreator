@@ -27,7 +27,7 @@ const Home = () => {
                                         <span>Token Creation</span>
                                     </h5>
                                     <p className="features__description">
-                                        We provide ready-to-use, affordable Token Creater Tool for all developers for the cheapest price on the market.
+                                        We provide ready-to-use, affordable Token Creator Tool for all developers for the cheapest price on the market.
                                     </p>
                                     <a className="features__link" href="/create">
                                         Try Now
