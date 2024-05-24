@@ -29,7 +29,7 @@ const Home = () => {
                                     <p className="features__description">
                                         We provide ready-to-use, affordable Token Creater Tool for all developers for the cheapest price on the market.
                                     </p>
-                                    <a className="features__link" href="/lp-manager">
+                                    <a className="features__link" href="/create">
                                         Try Now
                                         <img className="features__link-icon" src="/assets/icons/feature_link_icon.svg" alt="Feature Link Icon" />
                                     </a>
@@ -42,7 +42,7 @@ const Home = () => {
                                     <p className="features__description">
                                     Openbook Market of any size for everyone. Priority Fees included for transaction landing.
                                     </p>
-                                    <a className="features__link" href="/lp-manager">
+                                    <a className="features__link" href="/market">
                                         Try Now
                                         <img className="features__link-icon" src="/assets/icons/feature_link_icon.svg" alt="Feature Link Icon" />
                                     </a>
